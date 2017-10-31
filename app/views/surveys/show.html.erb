@@ -1,0 +1,17 @@
+<h1><%= @survey.name %></h1>
+
+<%= form_for [@survey, @question] do |f| %>
+    <div class="field">
+        <%= f.label :question %>
+        <%= f.text_field :content %>
+    </div>
+    <div class="actions"><%= f.submit "Add Question", class: 'button' %></div>
+<% end %>
+
+<ul>
+    <% @survey.questions.each do |q| %>
+        <li>
+            <p><%= q.content %> <%= link_to 'X', question_path(q), method: :delete if current_user.admin %></p>
+        </li>
+    <% end %>
+</ul>

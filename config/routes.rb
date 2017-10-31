@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
 root 'users#index'
 resources :users, only: [:new, :create]
+resources :surveys do
+  resources :questions, only: [:create, :destroy], shallow: true
+end
+
 
   resources :sessions, only: [:new, :create, :destroy]
   # Create a better looking URL for logging in
