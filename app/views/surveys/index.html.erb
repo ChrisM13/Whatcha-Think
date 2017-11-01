@@ -1,5 +1,5 @@
 
-<h1>Surveys</h1>
+<h3>Surveys</h3>
 <%= flash[:notice] %>
 <% if @surveys.length == 0 %>
     <h3>You have no surveys yet!</h3>
@@ -7,11 +7,18 @@
     <ul>
     <% @surveys.each do |survey| %>
         <li>
+            <% if current_user.admin %>
             <%= link_to survey.name, survey_path(survey) %>
             <%= link_to 'X', survey, method: :delete %>
+            <% else %>
+            <%= survey.name %>
+            <%= link_to 'Start Survey', question_path(survey) %>
+            <% end %>
         </li>
     <% end %>
     </ul>
    
 <% end %>
+    <% if current_user.admin %>
     <%= link_to 'New Survey', new_survey_path %>
+    <% end %>

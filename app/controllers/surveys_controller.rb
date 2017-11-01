@@ -2,8 +2,12 @@ class SurveysController < ApplicationController
     before_action :authorize
 
     def index
-        @surveys = current_user.surveys
+        if current_user.admin
+            @surveys = current_user.surveys
+        else
+            @surveys = Survey.all
 
+        end
     end
 
     def new

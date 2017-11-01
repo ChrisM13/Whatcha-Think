@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031032107) do
+ActiveRecord::Schema.define(version: 20171027225729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20171031032107) do
     t.integer "rating"
     t.text "comment"
     t.bigint "question_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -37,8 +39,6 @@ ActiveRecord::Schema.define(version: 20171031032107) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "question_id"
-    t.index ["question_id"], name: "index_surveys_on_question_id"
     t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20171031032107) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
   add_foreign_key "questions", "surveys"
-  add_foreign_key "surveys", "questions"
   add_foreign_key "surveys", "users"
 end
