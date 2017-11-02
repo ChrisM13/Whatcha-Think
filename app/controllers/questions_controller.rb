@@ -12,14 +12,16 @@ class QuestionsController < ApplicationController
     end
 
     def show
-        # look for a query param for which question you want to go to
-        # # if you didn't send me a number go to first question
-        # # if no query param, assume you're going to the first question
-        # question_id = params[:id]
-
-        # @question = Question.find(question_id)
-        # @survey = @question.survey
-        # survey_questions = @survey.questions 
+        if current_user.admin
+            @questions = Question.find(params[:id])
+            @answer = @questions.answers
+        else
+            questions = Question.where(survey_id: params[:id])
+            @question = questions[params[:index].to_i]
+            @answer = Answer.new
+        end 
+  
+ 
 
         # find the number of this question in the survey
         # question_index = _____
@@ -31,10 +33,9 @@ class QuestionsController < ApplicationController
 
         # make sure that next_question_index is not larger than survey_questions length
 
-        @answer = Answer.new
 
         # render the page
-
+        
 
     end
 

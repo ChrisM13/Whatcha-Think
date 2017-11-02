@@ -5,13 +5,16 @@
         <%= f.label :question %>
         <%= f.text_field :content %>
     </div>
-    <div class="actions"><%= f.submit "Add Question", class: 'button' %></div>
+    <div class="actions"><%= f.submit "Add Question", :class => "actions btn waves-effect blue darken2" %></div>
 <% end %>
-
-<ul>
+    <h4 class="questions">Questions</h4>
+<table class="highlight bordered">
     <% @survey.questions.each do |q| %>
-        <li>
-            <p><%= q.content %> <%= link_to 'X', question_path(q), method: :delete if current_user.admin %></p>
-        </li>
+        <tr>
+            <td><%= q.content %> </td><td><%= link_to 'Answers', question_path(q[:id]), :class => "actions btn waves-effect green darken2" if current_user.admin %></td><td><%= link_to 'DELETE', question_path(q), :class => "actions btn waves-effect red darken2", method: :delete if current_user.admin %></td>
+        </tr>
     <% end %>
-</ul>
+</table>
+<br>
+<%= link_to 'Done', surveys_path, :class => "actions btn waves-effect blue darken2" %>
+

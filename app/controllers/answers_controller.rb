@@ -1,12 +1,19 @@
 class AnswersController < ApplicationController
 
     def create
+        cur_index = params[:index].to_i + 1
         @answer = Answer.new(answer_params)
-        @answer.question_id = params[:question_id]
+        @question = Question.find(params[:question_id])
+        @answer.question = @question
         @answer.user = current_user
         @answer.save
-        redirect_to question_path(@answer.question_id)
-
+        # determine if last question
+        num_questions = Survey.find(@question.survey_id).questions.count 
+        if cur_index >= num_questions
+            redirect_to surveys_path
+        else
+            redirect_to question_path(@question.survey, index: cur_index)
+        end
     end
 
 

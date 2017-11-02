@@ -6,7 +6,6 @@ class SurveysController < ApplicationController
             @surveys = current_user.surveys
         else
             @surveys = Survey.all
-
         end
     end
 

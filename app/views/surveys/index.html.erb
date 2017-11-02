@@ -4,21 +4,22 @@
 <% if @surveys.length == 0 %>
     <h3>You have no surveys yet!</h3>
 <% else %>
-    <ul>
+    <table class="highlight bordered">
     <% @surveys.each do |survey| %>
-        <li>
+        <tr>
             <% if current_user.admin %>
-            <%= link_to survey.name, survey_path(survey) %>
-            <%= link_to 'X', survey, method: :delete %>
+                <td class="listItems"><%= link_to survey.name, survey_path(survey) %></td>
+                <td><%= link_to 'DELETE', survey, :class => "actions btn waves-effect red darken2", method: :delete %></td>
             <% else %>
-            <%= survey.name %>
-            <%= link_to 'Start Survey', question_path(survey) %>
+                <td class="listItems"><%= survey.name %><td>
+                <td><%= link_to 'Start Survey', question_path(survey, index: 0), :class => "actions btn waves-effect blue darken2" if survey.questions.count > 0 %></td>
             <% end %>
-        </li>
+        </tr>
     <% end %>
-    </ul>
+    </table>
    
 <% end %>
     <% if current_user.admin %>
-    <%= link_to 'New Survey', new_survey_path %>
+        <br>
+        <%= link_to 'New Survey', new_survey_path, :class => "actions btn waves-effect blue darken2" %>
     <% end %>

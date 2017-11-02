@@ -1,14 +1,29 @@
 <h2>Question's Show page</h2>
 
-<%= @question.content %>
+<% if current_user.admin %>
+        <h4><%= @questions.content %></h4>
+        <% @answer.each do |a| %>
+    <table class="highlight bordered">
+            <td><strong><%= a.rating %></strong></td><td> &nbsp; <%= a.comment %></td>
+    </table>
+    <% end %>
+        <br>
+        <%= link_to 'Back to Questions', "/surveys/#{@questions.survey.id}", :class => "actions btn waves-effect blue darken2" %>
+<% else %>
+    <h4><%= @question.content %></h4>
+<% end %>
 
 <div>
+    <% if current_user.admin %>
+    <% else %>
     <%= form_for [@question, @answer] do |f| %>
+        <%= hidden_field_tag :index, params[:index] %>
         <%= f.label :rating %>
         <%= f.text_field :rating %>
         <%= f.label :comment %>
         <%= f.text_field :comment %>
-          <div class="actions"><%= f.submit "Next Question", class: 'button' %></div>
+          <button class="actions btn waves-effect blue darken2" type="submit"><%= f.submit "Next Question" %>  <i class="material-icons right"></i></button>
+    <% end %>
     <% end %>
 </div>
 
