@@ -9,3 +9,4 @@
 User.destroy_all
 
 User.create(email: 'admin@email.com', admin: true, password: 'admin123')
+User.create(email: 'chris13@email.com', admin: false, password: 'chris123')

@@ -10,12 +10,13 @@ class UsersController < ApplicationController
         if @user.save
           session[:user_id] = @user.id
           if @user.admin
-          redirect_to root_path
+            redirect_to root_path
           else
-            redirect_to survey_path
-          end
-    
-        end
+            redirect_to surveys_path
+          end    
+        else
+          render :new
+        end        
     end
 
     def edit
