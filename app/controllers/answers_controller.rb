@@ -14,6 +14,11 @@ class AnswersController < ApplicationController
         else
             redirect_to question_path(@question.survey, index: cur_index)
         end
+
+    def edit
+        
+    end
+
     end
 
 

@@ -9,6 +9,7 @@
 <% end %>
     <h4 class="questions">Questions</h4>
 <table class="highlight bordered">
+  
     <% @survey.questions.each do |q| %>
         <tr>
             <td><%= q.content %> </td><td><%= link_to 'Answers', question_path(q[:id]), :class => "actions btn waves-effect green darken2" if current_user.admin %></td><td><%= link_to 'DELETE', question_path(q), :class => "actions btn waves-effect red darken2", method: :delete if current_user.admin %></td>
