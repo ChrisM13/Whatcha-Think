@@ -30,3 +30,16 @@
 .landingBody {
     background-color: black;
 }
+
+.landingPage {
+    text-align: center;
+    color: white;
+    vertical-align: center;
+    margin-top: 25%
+}
+
+.landingPage1 {
+    text-align: center;
+    color: white;
+    vertical-align: center;
+}
