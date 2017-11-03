@@ -3,7 +3,7 @@
 <p><strong>Whatcha Think</strong> is a survey app. It allows admin users to creat custom surveys that can be answered from anywhere in the world!</p>
 <h1>Screen Shots</h1>
 <p>Landing Page</P>
-<a href="https://imgur.com/Q9U9nYS"><img src="https://i.imgur.com/Q9U9nYS.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/5ZI4Ie3"><img src="https://i.imgur.com/5ZI4Ie3.png" title="source: imgur.com" /></a>
 <p>Admin Survey View</p>
 <a href="https://imgur.com/sDNSDVh"><img src="https://i.imgur.com/sDNSDVh.png" title="source: imgur.com" /></a>
 <p>Admin Create Question view</p>
