@@ -12,13 +12,16 @@ class QuestionsController < ApplicationController
     end
 
     def show
+        
         if current_user.admin
             @questions = Question.find(params[:id])
+            @survey = @questions.survey.name
             @answer = @questions.answers
         else
             questions = Question.where(survey_id: params[:id])
             @question = questions[params[:index].to_i]
             @answer = Answer.new
+            @survey = @question.survey.name
         end 
   
  

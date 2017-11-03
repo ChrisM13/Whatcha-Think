@@ -27,6 +27,6 @@
     filter: grayscale(10%);
    }
 
-   body {
-    z-index: 2
-   }
+.landingBody {
+    background-color: black;
+}
