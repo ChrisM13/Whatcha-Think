@@ -1,6 +1,6 @@
 <h1>Whatcha Think</h1>
 <h2>Intro</h2>
-<p><strong>Whatcha Think</strong> is a survey app. It allows admin users to creat custom surveys that can be answered from anywhere in the world!</p>
+<p><strong>Whatcha Think</strong> is a survey app. It allows admin users to create custom surveys that can be answered from anywhere in the world!</p>
 <h1>Screen Shots</h1>
 <p>Landing Page</P>
 <a href="https://imgur.com/5ZI4Ie3"><img src="https://i.imgur.com/5ZI4Ie3.png" title="source: imgur.com" /></a>
