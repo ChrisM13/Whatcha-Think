@@ -23,6 +23,9 @@
 </ul>
 
 <h1>Installation instructions</h1>
+
+<p>To test the app as an Admin use admin@email.com as the log in name and admin123 as the password.</p>
+<p>To test the app as a User use chris13@email.com as the log in name and chris123 as the password.</p>
 <a href="https://watchathink.herokuapp.com/">Whatca Think Link</a>
 <br>
 <a href="https://trello.com/b/qfST6Zg3/project-2-whatchathink">Trello Link</a>
